@@ -1,6 +1,6 @@
 "use client";
 
-import { Clause } from "@/components/custom/clause-card";
+import { Clause } from "@/types";
 import ContractClauses from "@/components/custom/contract_clauses";
 import useFetch from "@/hooks/useFetch";
 
@@ -25,7 +25,7 @@ export default function Home() {
   useEffect(() => {
     fetchData("/files", "GET").then((data) => {
       console.log("DATA", data);
-      const filenames = data.map((file) => file[1]);
+      const filenames = data.map((file: never) => file[1]);
       setFilenames(filenames);
     });
   }, []);
