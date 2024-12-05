@@ -35,8 +35,9 @@ const useFetch = (apiUrl: string = "http://localhost:8000") => {
                 const responseData = await response.json();
                 setData(responseData);
                 return responseData
-            } catch (err: unknown) {
-                setError(err.message || 'Something went wrong');
+            } catch (err) {
+                const error = err as Error
+                setError(error.message || 'Something went wrong');
             } finally {
                 setIsLoading(false);
             }
