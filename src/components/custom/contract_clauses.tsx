@@ -25,12 +25,10 @@ export default function ContractClauses({
     activeTab === "all" ? clauses : groupedClauses[activeTab] || [];
 
   return (
-    <div className="min-h-screen p-6 bg-gray-50">
+    <div className="min-h-screen p-6 bg-[#F2F2F2] text-[#333333]">
       <div className="flex flex-col items-center mb-8">
-        <h1 className="text-4xl font-extrabold text-gray-800 dark:text-gray-100 tracking-wide">
-          {fileName}
-        </h1>
-        <p className="text-md text-gray-600 dark:text-gray-300">
+        <h1 className="text-4xl font-bold tracking-wide">{fileName}</h1>
+        <p className="text-sm text-[#6C757D]">
           {clauses.length} clause{clauses.length !== 1 && "s"} found in this
           document
         </p>
@@ -38,10 +36,10 @@ export default function ContractClauses({
 
       <div className="flex flex-wrap justify-center gap-4 mb-6">
         <button
-          className={`px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 ${
+          className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
             activeTab === "all"
-              ? "bg-blue-700 text-white"
-              : "bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700"
+              ? "bg-[#4A90E2] text-white"
+              : "bg-[#333333] text-white hover:bg-[#D3D4DB]"
           }`}
           onClick={() => setActiveTab("all")}
         >
@@ -53,7 +51,7 @@ export default function ContractClauses({
             className={`px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 ${
               activeTab === type
                 ? `${clauseTypeColors[type as ClauseType].bgColor} text-white`
-                : "bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-700"
+                : "bg-[#333333] text-white hover:bg-[#D3D4DB]"
             }`}
             onClick={() => setActiveTab(type as ClauseType)}
           >

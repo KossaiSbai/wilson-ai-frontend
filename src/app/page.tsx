@@ -24,17 +24,14 @@ export default function Home() {
 
   useEffect(() => {
     fetchData("/files", "GET").then((data) => {
-      console.log("DATA", data);
       const filenames = data.map((file: never) => file[1]);
       setFilenames(filenames);
     });
   }, []);
 
   useEffect(() => {
-    console.log("FILENAME", filename);
     if (filename) {
       fetchData(`/clauses/${filename}`, "GET").then((data) => {
-        console.log("CLAUSES", data);
         setClauses(data);
       });
     }
@@ -47,26 +44,24 @@ export default function Home() {
     setFilename(value);
   };
 
-  console.log(error);
-
   return (
-    <div className="min-h-screen p-12 bg-gray-50">
-      <header className="mb-6">
-        <h1 className="text-3xl font-bold text-gray-800 text-center mb-4">
+    <div className="min-h-screen bg-gray-50 pt-5">
+      <header className="mb-6 text-center">
+        <h1 className="text-3xl font-bold text-[#333333] mb-2">
           Wilson Contract Clause Manager
         </h1>
-        <p className="text-center text-gray-600">
+        <p className="text-[#6C757D]">
           Select a file to view its clauses or upload a new contract.
         </p>
       </header>
 
-      <div className="flex flex-wrap items-center justify-between bg-white p-4 rounded-lg shadow-md mb-6 max-w-5xl mx-auto">
+      <div className="flex flex-wrap items-center justify-between bg-[#FFFFFF] p-6 rounded-lg shadow-md mb-6 max-w-3xl mx-auto">
         <div className="flex items-center gap-4">
-          <label htmlFor="file-selector" className="text-gray-700 font-medium">
+          <label htmlFor="file-selector" className="text-[#333333] font-medium">
             Select Contract:
           </label>
           <Select onValueChange={handleFilenameChange}>
-            <SelectTrigger className="w-[220px] border border-gray-300 rounded-md">
+            <SelectTrigger className="w-[220px] border border-[#EDEDF0] rounded-md text-[#333333] bg-[#FFFFFF]">
               <SelectValue placeholder="Choose a contract file..." />
             </SelectTrigger>
             <SelectContent>
@@ -82,7 +77,7 @@ export default function Home() {
         <div>
           <Button
             asChild
-            className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+            className="bg-[#333333] text-white px-4 py-2 rounded-lg hover:bg-[#357ABD] transition"
           >
             <Link href="/upload">Upload New Contract</Link>
           </Button>
@@ -90,10 +85,10 @@ export default function Home() {
       </div>
 
       <div>
-        {filename && clauses ? (
+        {filename && clauses.length > 0 ? (
           <ContractClauses clauses={clauses} fileName={filename} />
         ) : (
-          <div className="text-center text-gray-600 mt-12">
+          <div className="text-center text-[#6C757D] mt-12">
             Please select a file to view its clauses.
           </div>
         )}

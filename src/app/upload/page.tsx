@@ -24,13 +24,13 @@ export default function UploadFile() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 p-4">
-      <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+    <div className="min-h-screen flex items-center justify-center bg-[#F5F5FA] p-4">
+      <div className="w-full max-w-md bg-[#FFFFFF] rounded-lg shadow-lg p-8">
         <div className="mb-6 text-center">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-2">
+          <h2 className="text-2xl font-bold text-[#333333] mb-2">
             Upload Contract File
           </h2>
-          <p className="text-gray-600 dark:text-gray-300">
+          <p className="text-[#6C757D]">
             Select a PDF or Word document to upload for clause analysis.
           </p>
         </div>
@@ -38,7 +38,7 @@ export default function UploadFile() {
         <div className="mb-6">
           <Label
             htmlFor="file"
-            className="block text-gray-700 dark:text-gray-200 mb-2"
+            className="block text-[#333333] mb-2 font-medium"
           >
             Choose File
           </Label>
@@ -52,10 +52,10 @@ export default function UploadFile() {
                 console.log("Selected File:", selectedFile);
                 setFile(selectedFile);
               }}
-              className="file-input flex-1"
+              className="file-input flex-1 border border-[#EDEDF0] rounded-md px-4 py-2 bg-[#FFFFFF]"
             />
             {file && (
-              <span className="ml-3 text-sm text-gray-600 dark:text-gray-300">
+              <span className="ml-3 text-sm text-[#6C757D] truncate">
                 {file.name}
               </span>
             )}
@@ -66,22 +66,26 @@ export default function UploadFile() {
           <Button
             onClick={onClick}
             disabled={isLoading || !file}
-            className="w-full flex items-center justify-center space-x-2"
+            className={`w-full flex items-center justify-center space-x-2 px-4 py-2 rounded-md ${
+              isLoading
+                ? "bg-[#D4D7E0] text-[#FFFFFF] cursor-not-allowed"
+                : "bg-[#4A90E2] text-[#FFFFFF] hover:bg-[#357ABD]"
+            }`}
           >
             <FaUpload />
             <span>{isLoading ? "Uploading..." : "Upload"}</span>
           </Button>
         </div>
 
-        <div>
+        <div className="mt-4">
           {error && (
-            <div className="flex items-center text-red-600 dark:text-red-400">
+            <div className="flex items-center text-red-600">
               <FaExclamationCircle className="mr-2" />
               <span>Error: {error}</span>
             </div>
           )}
           {data ? (
-            <div className="flex items-center text-green-600 dark:text-green-400">
+            <div className="flex items-center text-green-600">
               <FaCheckCircle className="mr-2" />
               <span>Upload successful!</span>
             </div>
