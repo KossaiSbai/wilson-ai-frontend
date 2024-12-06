@@ -24,7 +24,7 @@ export default function UploadFile() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#F5F5FA] p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
       <div className="w-full max-w-md bg-[#FFFFFF] rounded-lg shadow-lg p-8">
         <div className="mb-6 text-center">
           <h2 className="text-2xl font-bold text-[#333333] mb-2">
