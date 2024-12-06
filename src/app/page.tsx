@@ -45,23 +45,23 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-5">
-      <header className="mb-6 text-center">
-        <h1 className="text-3xl font-bold text-[#333333] mb-2">
+    <div className="min-h-screen pt-12 bg-gray-100">
+      <header className="mb-6">
+        <h1 className="text-3xl font-bold text-gray-800 text-center mb-4">
           Wilson Contract Clause Manager
         </h1>
-        <p className="text-[#6C757D]">
+        <p className="text-center text-gray-600">
           Select a file to view its clauses or upload a new contract.
         </p>
       </header>
 
-      <div className="flex flex-wrap items-center justify-between bg-[#FFFFFF] p-6 rounded-lg shadow-md mb-6 max-w-3xl mx-auto">
+      <div className="flex flex-wrap items-center justify-between bg-white p-4 rounded-lg shadow-md mb-6 max-w-4xl mx-auto">
         <div className="flex items-center gap-4">
-          <label htmlFor="file-selector" className="text-[#333333] font-medium">
+          <label htmlFor="file-selector" className="text-gray-700 font-medium">
             Select Contract:
           </label>
           <Select onValueChange={handleFilenameChange}>
-            <SelectTrigger className="w-[220px] border border-[#EDEDF0] rounded-md text-[#333333] bg-[#FFFFFF]">
+            <SelectTrigger className="w-[220px] border border-gray-300 rounded-md">
               <SelectValue placeholder="Choose a contract file..." />
             </SelectTrigger>
             <SelectContent>
@@ -85,10 +85,10 @@ export default function Home() {
       </div>
 
       <div>
-        {filename && clauses.length > 0 ? (
+        {filename && clauses ? (
           <ContractClauses clauses={clauses} fileName={filename} />
         ) : (
-          <div className="text-center text-[#6C757D] mt-12">
+          <div className="text-center text-gray-600 mt-12">
             Please select a file to view its clauses.
           </div>
         )}

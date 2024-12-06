@@ -25,7 +25,7 @@ export default function ContractClauses({
     activeTab === "all" ? clauses : groupedClauses[activeTab] || [];
 
   return (
-    <div className="min-h-screen p-6 bg-[#F2F2F2] text-[#333333]">
+    <div className="min-h-screen p-8 bg-[#e6e6e6] text-[#333333]">
       <div className="flex flex-col items-center mb-8">
         <h1 className="text-4xl font-bold tracking-wide">{fileName}</h1>
         <p className="text-sm text-[#6C757D]">
@@ -39,7 +39,7 @@ export default function ContractClauses({
           className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
             activeTab === "all"
               ? "bg-[#4A90E2] text-white"
-              : "bg-[#333333] text-white hover:bg-[#D3D4DB]"
+              : "bg-[#333333] text-white hover:bg-[#B0B0B0]"
           }`}
           onClick={() => setActiveTab("all")}
         >
@@ -51,7 +51,7 @@ export default function ContractClauses({
             className={`px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 ${
               activeTab === type
                 ? `${clauseTypeColors[type as ClauseType].bgColor} text-white`
-                : "bg-[#333333] text-white hover:bg-[#D3D4DB]"
+                : "bg-[#333333] text-white hover:bg-[#B0B0B0]"
             }`}
             onClick={() => setActiveTab(type as ClauseType)}
           >
