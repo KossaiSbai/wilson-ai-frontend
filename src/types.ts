@@ -27,33 +27,38 @@ export enum ClauseType {
 
 export const clauseTypeColors: Record<
     ClauseType,
-    { spanColor: string; badgeBgColor: string; textColor: string; icon: ReactElement }
+    { bgColor: string; spanColor: string; badgeBgColor: string; textColor: string; icon: ReactElement }
 > = {
     [ClauseType.INDEMNIFICATION]: {
+        bgColor: "bg-red-500",
         spanColor: "bg-red-500",
         badgeBgColor: "bg-red-100",
         textColor: "text-red-500",
         icon: React.createElement(ShieldExclamationIcon, { className: "h-6 w-6" }),
     },
     [ClauseType.TERMINATION]: {
+        bgColor: "bg-blue-500",
         spanColor: "bg-blue-500",
         badgeBgColor: "bg-blue-100",
         textColor: "text-blue-500",
         icon: React.createElement(TrashIcon, { className: "h-6 w-6" }),
     },
     [ClauseType.LIABILITY]: {
+        bgColor: "bg-green-500",
         spanColor: "bg-green-500",
         badgeBgColor: "bg-green-100",
         textColor: "text-green-500",
         icon: React.createElement(HandRaisedIcon, { className: "h-6 w-6" }),
     },
     [ClauseType.CONFIDENTIALITY]: {
+        bgColor: "bg-purple-500",
         spanColor: "bg-purple-500",
         badgeBgColor: "bg-purple-100",
         textColor: "text-purple-500",
         icon: React.createElement(LockClosedIcon, { className: "h-6 w-6" }),
     },
     [ClauseType.COPYRIGHT]: {
+        bgColor: "bg-yellow-500",
         spanColor: "bg-yellow-500",
         badgeBgColor: "bg-yellow-100",
         textColor: "text-yellow-500",

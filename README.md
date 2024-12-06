@@ -35,3 +35,13 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 # wilson-ai-frontend
+
+## Application Routes
+
+### `/` Route
+
+The `/` route will display a selection interface where users can pick a file to view its clauses.
+
+### `/upload` Route
+
+The `/upload` route directs users to a page where they can upload a legal contract.
